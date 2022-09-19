@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "dist/esm",
+    "target": "es6" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+    "lib": [
+      "es6",
+      "DOM",
+      "DOM.Iterable"      
+    ],
+    "moduleResolution": "Node",
+    "module": "es6",
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+  },
+  "incude": ["lib"],
+  "exclude": ["node_modules", "example"]
+}

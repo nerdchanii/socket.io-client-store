@@ -1,28 +1,44 @@
-# socket.io-store
+# socket.io-client-store
 
-It is a store for socket.io.
+It is a store for [socket.io-client](https://github.com/socketio/socket.io-client). It makes it easy to use socket.io client. It inspired from [Redux](https://github.com/reduxjs/redux).
 
 ## 1. Installation
+This package has a peer dependency on [socket.io-client](https://github.com/socketio/socket.io-client). if you didn't install it, you should install it first.
 
+### 1.1 Install Socket.io-client(if you don't have it)
+
+With npm 
 ```bash
-# npm
-# npm install socket-io-store
+npm install socket.io-client
+```
 
-# yarn
-# $ yarn add socket.io-store
+With yarn
+```bash
+yarn add socket.io-client
+```
+### 1.2 Install socket.io-client-store
+
+With npm
+```bash
+npm install socket.io-client-store 
+```
+
+With yarn
+```bash
+yarn add socket.io-client-store
 ```
 
 ## 2. Usage
 
-### 2.1. Make Socket instance 
+### 2.1. Make Socket instance
 
-It is [`socket.io/client`](https://github.com/socketio/socket.io-client) instance.
+`Socket` is [`socket.io/client`](https://github.com/socketio/socket.io-client) instance.
 
 ```js
 const socket = io('https://your.socket.io.server.com');
 ```
 
-### 2.2. Make Store instance
+### 2.2. Make Store instance.
 
 `SocketIoStore` get three Arguments.
 - `socket` : Socket instance

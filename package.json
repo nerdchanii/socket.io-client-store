@@ -1,8 +1,26 @@
 {
-  "name": "socket.io-store",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "socket.io-client-store",
+  "version": "0.0.1",
+  "description": "It is a store for socket.io-client. it makes it easy to use socket.io client",
+  "author": "nerdchanii <nerdchanii@gmail.com>",
+  "license": "MIT",
+  "types": "./dist/esm/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "main": "./dist/cjs/index.js",
+  "files": [
+    "dist/*"
+  ],
+  "directories": {
+    "example": "example"
+  },
+  "keywords": [
+    "websocket",
+    "store",
+    "socket.io-client store",
+    "socket.io store",
+    "socket store",
+    "ws"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "npm run build:esm && npm run build:cjs",
@@ -19,5 +37,13 @@
     "socket.io": "^4.5.2",
     "typescript": "^4.6.4",
     "vite": "^3.1.0"
-  }
+  },
+  "repository": {
+    "type":"git",
+    "url": "https://github.com/nerdchanii/socket.io-client-store.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nerdchanii/socket.io-client-store/issues"
+  },
+  "homepage": "https://github.com/nerdchanii/socket.io-client-sotre.git"
 }

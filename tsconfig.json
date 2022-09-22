@@ -17,5 +17,5 @@
     "skipLibCheck": true,
   },
   "incude": ["lib"],
-  "exclude": ["node_modules", "example"]
+  "exclude": ["node_modules", "example","test"]
 }

@@ -1,5 +1,5 @@
 import {  Socket } from "socket.io-client";
-import { Listener, ISocketIoStore, SocketReducer, SocketIoStoreOptions } from "./types";
+import { Listener, ISocketIoStore, MessageHandler, SocketIoStoreOptions } from "./types";
 
 export class SocketIoStore {
   private listeners!: {
@@ -10,17 +10,16 @@ export class SocketIoStore {
   /**
    * 
    * @param {Socket} socketIO - socket.io client instance
-   * @param {SocketReducer[]} socketReducer - socket reducers.
+   * @param {MessageHandler[]} messageHandlers - socket reducers.
    * @param {SocketIoStoreOptions} options - options for socket.io store
    */
   constructor(
     protected socketIO: Socket,
-    socketReducer: SocketReducer[],
+    messageHandlers: MessageHandler[],
     protected options: SocketIoStoreOptions = {} 
   ) {
-    /** Initialize the store */
     this.listeners = {};
-    this.store = socketReducer.reduce((acc, curr) => {
+    this.store = messageHandlers.reduce((acc, curr) => {
       const { state, reducer, key } = curr;
       const temp = { state, reducer };
       if (acc[key] !== undefined)
@@ -32,7 +31,7 @@ export class SocketIoStore {
     /** Listen to socket.io events */
     this.socketIO.on("connect", () => {
       this.options.onConnect?.(this.socketIO);
-      socketReducer.map(({ key, reducer }) => {
+      messageHandlers.map(({ key, reducer }) => {
         this.socketIO.on(key, (data: any) => {
           this.store[key].state = reducer(this.store[key].state, data);
           this.notify(key, this.store[key].state);
@@ -61,11 +60,12 @@ export class SocketIoStore {
     return this.socketIO.emit(key, data);
   }
   /**
-   *  
+   * Create a send function for key
+   * @method createSender
    * @param key 
    * @returns 
    */
-  public makeSender(key: string) {
+  public createSender(key: string) {
     return (data: any) => this.send(key, data);
   }
 

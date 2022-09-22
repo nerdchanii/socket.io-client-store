@@ -19,18 +19,18 @@ interface Reducer {
 }
 
 /**
- * Socket reducer 
+ * MessageHandler 
  * It is define How to handle socket data with Key using reducer.
  * 
- * when you make a new SocketStore, you need to pass SocketReducer array.
+ * when you make a new SocketStore, you need to pass MessageHandler array.
  * 
- * @interface SocketReducer
+ * @interface MessageHandler
  * @property {string} key - key for the reducer
  * @property {any} state - initial state for the reducer
  * @property {Reducer} reducer - reducer function
  * 
  */
-export interface SocketReducer {
+export interface MessageHandler {
   key: string;
   reducer: Reducer;
   state: any;

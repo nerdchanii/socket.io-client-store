@@ -56,7 +56,6 @@ export class SocketIoStore {
    * 
    */
   public send(key: string, data: any) {
-    console.log('send'  , key, data);
     return this.socketIO.emit(key, data);
   }
   /**
@@ -78,12 +77,9 @@ export class SocketIoStore {
   };
 
   /**
-   * Get the state of a reducer
+   * Get the state of the key
    * @param {string} key - key of the state
    * @returns {any} - state
-   * @example
-   * const state = store.getState('chat message');
-   * console.log(state); // ['hello world']
    * 
    */
   public getState(key: string): any {

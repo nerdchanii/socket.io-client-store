@@ -1,6 +1,6 @@
 {
   "name": "socket.io-client-store",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "It is a store for socket.io-client. It makes it easy to use socket.io client. It inspired from Redux",
   "author": "nerdchanii <nerdchanii@gmail.com>",
   "license": "MIT",
